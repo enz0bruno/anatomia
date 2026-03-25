@@ -1,4 +1,5 @@
 import confetti from 'canvas-confetti';
+import './index.css';
 
 // --- DATA TYPES ---
 interface Question {
@@ -350,8 +351,15 @@ const render = () => {
   }
 
   // Re-initialize Lucide icons
-  (window as any).lucide?.createIcons();
+  const lucide = (window as any).lucide;
+  if (lucide && typeof lucide.createIcons === 'function') {
+    lucide.createIcons();
+  }
 };
 
 // Initial render
-render();
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', render);
+} else {
+  render();
+}
