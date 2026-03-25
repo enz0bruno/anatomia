@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Academia de Anatomia do Amor</title>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body>
+    <div id="app" class="min-h-screen flex items-center justify-center p-4 bg-romantic-pink/30 relative overflow-hidden">
+      <!-- Background decoration -->
+      <div class="fixed inset-0 -z-10 pointer-events-none overflow-hidden">
+        <div class="absolute top-10 left-10 opacity-10 rotate-12">
+          <i data-lucide="brain" class="w-32 h-32 text-romantic-deep"></i>
+        </div>
+        <div class="absolute bottom-10 right-10 opacity-10 -rotate-12">
+          <i data-lucide="heart" class="w-48 h-48 text-romantic-deep"></i>
+        </div>
+        <div class="absolute top-1/2 left-1/4 opacity-5">
+          <i data-lucide="sparkles" class="w-24 h-24 text-romantic-deep"></i>
+        </div>
+      </div>
+
+      <!-- Main Container -->
+      <div id="view-container" class="w-full flex justify-center">
+        <!-- Views will be injected here -->
+      </div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
+
