@@ -1,4 +1,5 @@
 import confetti from 'canvas-confetti';
+import { createIcons, icons } from 'lucide';
 import './index.css';
 
 // --- DATA TYPES ---
@@ -87,8 +88,12 @@ const normalizeText = (text: string) => {
 };
 
 const render = () => {
+  console.log('Rendering view:', currentView);
   const container = document.getElementById('view-container');
-  if (!container) return;
+  if (!container) {
+    console.error('View container not found!');
+    return;
+  }
 
   container.innerHTML = '';
 
@@ -351,10 +356,7 @@ const render = () => {
   }
 
   // Re-initialize Lucide icons
-  const lucide = (window as any).lucide;
-  if (lucide && typeof lucide.createIcons === 'function') {
-    lucide.createIcons();
-  }
+  createIcons({ icons });
 };
 
 // Initial render
