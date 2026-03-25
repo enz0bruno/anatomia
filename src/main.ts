@@ -2,6 +2,8 @@ import confetti from 'canvas-confetti';
 import { createIcons, icons } from 'lucide';
 import './index.css';
 
+console.log('Main script loaded and running');
+
 // --- DATA TYPES ---
 interface Question {
   id: number;
@@ -356,12 +358,22 @@ const render = () => {
   }
 
   // Re-initialize Lucide icons
-  createIcons({ icons });
+  try {
+    if (typeof createIcons === 'function') {
+      createIcons({ icons });
+    }
+  } catch (err) {
+    console.error('Error initializing icons:', err);
+  }
 };
 
 // Initial render
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', render);
+  document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM Content Loaded, starting render');
+    render();
+  });
 } else {
+  console.log('DOM already ready, starting render');
   render();
 }
